@@ -63,7 +63,7 @@
 <div class="w3-main" style="margin-left:300px">
   
   <!-- Header -->
-  <jsp:include page="/WebContent/view/sideView/header.jsp"></jsp:include>
+  <jsp:include page="/view/sideView/header.jsp"></jsp:include>
   
   
   <!-- First Grid-->
@@ -188,7 +188,7 @@
   
 	
   <!-- footer -->
-  <jsp:include page="/WebContent/view/sideView/footer.jsp"></jsp:include>
+  <jsp:include page="/view/sideView/footer.jsp"></jsp:include>
   
 </div>
 <div class="w3-black w3-center w3-padding-24">6조 <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>

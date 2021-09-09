@@ -75,9 +75,10 @@ label span{
 			</tr>
 			<tr><td>내용</td><td><textarea rows="10" name="content" style="width:100%"></textarea></tr>
 			<tr><td>첨부파일</td><td><input type="file" name="file1"></td></tr>
-			<tr><td style="text-align:center">
-				<a href="javascript:review_submit()">[리뷰등록]</a></td></tr>
+			
 		</table>
+		<tr><td style="text-align:center">
+				<a href="javascript:review_submit()" style="margin-left:180px">[리뷰등록]</a></td></tr>
 	</div>
 	<br><br><br>
 	
