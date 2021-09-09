@@ -18,9 +18,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <h4><b>마이페이지</b></h4>
+    <h2 onclick="location.href ='main/main.jsp'"><b>쇼핑몰 사이트</b></h2>
   </div>
   <div class="w3-bar-block">
+  	
     <a href="#orderlist" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>구매 내역 확인</a> 
     <a href="#mypageUpdate" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>내 정보 수정</a> 
   </div>
@@ -39,9 +40,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <div class="w3-container">
     <h1><b>쇼핑몰</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16">
-    
       <button class="w3-button w3-white w3-hide-small">마이페이지</button>
-      <button class="w3-button w3-white w3-hide-small">장바구니</button>
+      <button class="w3-button w3-white w3-hide-small" onclick="location.href ='cart.jsp'">장바구니</button>
       <button class="w3-button w3-white w3-hide-small">주문하기</button>
       <button class="w3-button w3-white w3-hide-small">상품리뷰</button>
     </div>

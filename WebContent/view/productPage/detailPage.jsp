@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +23,13 @@
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
-    <h4><b>로그인</b></h4>
-    <form action="#" target="_blank">
+    <h2 onclick="location.href ='../main/main.jsp'"><b>쇼핑몰 사이트</b></h2>
+  </div>
+
+  <div class="w3-bar-block"> 
+    
+        <h4 class="w3-padding"><b>로그인</b></h4>
+    <form action="#" class="w3-padding" target="_blank">
     	<div class="w3-section">
     		<label>아이디</label>
     		<input class="w3-input w3-border" type="text" name="Name" required>
@@ -35,25 +39,17 @@
     		<input class="w3-input w3-border" type="text" name="Passwd" required>
     	</div>
     </form>
+    
+    <a onclick="location.href ='../admin/adminPage.jsp'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
+    <a onclick="location.href ='../MyPage.jsp'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a>  
   </div>
   
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">
-    	<i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    	<i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    	<i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+    <a onclick="location.href ='../board/review/reviewList.jsp'" class="w3-bar-item w3-button w3-padding w3-text-teal">
+    	<i class="fa fa-th-large fa-fw w3-margin-right" ></i><b>리뷰 보기<b></a> 
+
   </div>
-  
-  <div class="w3-panel w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
+
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -70,7 +66,7 @@
   <div class="w3-row-padding w3-padding-16">
     <!-- 상품 전체 이미지 출력 부분 -->
     <div class="w3-col m6">
-    	<img src="WebContent/img/MSI.jpg" alt="labtop" style="width:100%">
+    	<img src="/shopPro/img/MSI.jpg" alt="labtop" style="width:100%">
     </div>
     
     <!-- 이미지 오른쪽 컨텐츠 부분 -->
@@ -94,7 +90,7 @@
     			</div>
     			
     			<div class="w3-rest" align="right">
-    				<button class="w3-button w3-black w3-round-large" style="width:150px">장바구니</button>
+    				<button class="w3-button w3-black w3-round-large" onclick="location.href ='../cart.jsp'" style="width:150px">장바구니</button>
     				<button class="w3-button w3-black w3-round-large" style="width:150px">바로구매</button>
     			</div>
     		</div>
@@ -103,7 +99,7 @@
   </div>
   
   <!-- Second Grid-->
-  <script type="text/javascript" src="<c:url value="/WebContent/js/detailPage.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/shopPro/js/detailPage.js"/>"></script>
 	  
   <div class="w3-row-padding w3-padding-16">
   		<!-- 헤더 -->
@@ -160,15 +156,15 @@
   			<div class="w3-col m6">
   				<div class="w3-content w3-display-container">
   					<div class="w3-display-container mySlides">
-  						<img src="WebContent/img/1.jpg" style="width:100%; height:300px">
+  						<img src="/shopPro/img/1.jpg" style="width:100%; height:300px">
   					</div>
   					
   					<div class="w3-display-container mySlides">
-  						<img src="WebContent/img/2.jpg" style="width:100%; height:300px">
+  						<img src="/shopPro/img/2.jpg" style="width:100%; height:300px">
   					</div>
   					
   					<div class="w3-display-container mySlides">
-  						<img src="WebContent/img/3.jpg" style="width:100%; height:300px">
+  						<img src="/shopPro/img/3.jpg" style="width:100%; height:300px">
   					</div>
   					
   					<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
