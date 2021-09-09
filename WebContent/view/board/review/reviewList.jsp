@@ -98,7 +98,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 					</c:if></td>
 				</tr> -->
 		<tr>
-			<td colspan="6" style="text-align: right"><a href="reviewWrite.jsp">[리뷰작성]</a></td>
+			<td colspan="6" style="text-align: center"><a href="reviewWrite.jsp">[리뷰작성]</a></td>
 		</tr>
 	</table>
 			<div class="w3-bar" style="margin-left:180px">
