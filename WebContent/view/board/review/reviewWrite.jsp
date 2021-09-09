@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,9 +49,9 @@ label span{
     <p class="w3-text-grey"> 상품 이름 </p>
   </div>
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>메뉴1</a> 
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>메뉴2</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>메뉴3</a>
   </div>
 </nav>
 
@@ -59,7 +60,7 @@ label span{
 
 
 <div class="w3-main" style="margin-left:330px">
-<form action="reviewWritePro" method="post"
+<form action="#" method="post"
 	enctype="multipart/form-data" name="f">
 	<div class="w3-content">
 		<table>
@@ -77,8 +78,9 @@ label span{
 			<tr><td>첨부파일</td><td><input type="file" name="file1"></td></tr>
 			
 		</table>
-		<tr><td style="text-align:center">
-				<a href="javascript:review_submit()" style="margin-left:180px">[리뷰등록]</a></td></tr>
+		<table><tr><td style="text-align:center">
+				<a href="javascript:review_submit()" style="margin-left:180px">[리뷰등록]</a></td></tr></table>
+		
 	</div>
 	<br><br><br>
 	

@@ -24,7 +24,6 @@ public class ReviewController extends Action{
     	return "/view/alert.jsp";
     }
 	
-
     public String reviewWrite(HttpServletRequest request, HttpServletResponse response) throws Exception {
     
     	

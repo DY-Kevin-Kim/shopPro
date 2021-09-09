@@ -17,8 +17,8 @@
   <jsp-config>
   <jsp-property-group>
   <url-pattern>/view/*</url-pattern>
-  <include-prelude>/common/head.jsp</include-prelude>
-  <include-coda>/common/footer.jsp</include-coda>
+  <!-- <include-prelude>/common/head.jsp</include-prelude>
+  <include-coda>/common/footer.jsp</include-coda> -->
   </jsp-property-group>
   </jsp-config>
   
