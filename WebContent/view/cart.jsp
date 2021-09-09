@@ -10,7 +10,17 @@
 	href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../css/cart.css"/>
+<style>
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway", sans-serif
+}
+
+/*https://aboooks.tistory.com/256*/
+hr.one {
+	width: 1290px;
+	border: thin solid black;
+}
+</style>
 <title>장바구니</title>
 </head>
 
@@ -53,7 +63,6 @@
 					<br> <b>장바구니</b>
 				</h1>
 				<br> <br>
-				<hr class="one">
 
 				<!-- <div class="w3-section w3-bottombar w3-padding-16">
 					<span class="w3-margin-right">Filter:</span>
@@ -70,8 +79,15 @@
 				</div>-->
 			</div>
 		</header>
+		<hr class="one">
+		<table border="1">
+		<tr>
+		<td width="445" align="center">상품번호</td>
+		<td width="445" align="center">상품명</td>
+		<td width="400" align="center">상품금액</td>
+		</tr>
+		</table>
 		
-		<hr>
 
 		<!-- Pagination -->
 		<div class="w3-center w3-padding-32">
