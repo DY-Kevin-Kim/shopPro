@@ -39,7 +39,7 @@ hr {
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <h4><b>Admin Page</b></h4>
+    <h2 onclick="location.href ='../main/main.jsp'"><b>쇼핑몰 사이트</b></h2>
     <p class="w3-text-grey">Market Info</p>
   </div>
   <div class="w3-bar-block">
@@ -47,14 +47,7 @@ hr {
     <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
   </div>
-  <div class="w3-panel w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
+
 </nav>
 
 
@@ -168,33 +161,35 @@ hr {
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white ">
           <li class="w3-black w3-center w3-xlarge w3-padding-32">이번주 인기 상품 품목</li>
-          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
+          <li class="w3-padding-16"><b>1. MSI GL65 Leopard 10SFK-062 &nbsp;</b><button 
+          class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off"  onclick="location.href ='../productPage/detailPage.jsp'" >이동</button></li>
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
         </ul>
       </div>
       
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white ">
           <li class="w3-black w3-center w3-xlarge w3-padding-32">이번달 인기 상품 품목</li>
-          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
+          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
         </ul>
       </div>
       
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white ">
           <li class="w3-black w3-center w3-xlarge w3-padding-32">누적 인기 상품 품목</li>
-          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
-          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">Sign Up</button></li>
+          <li class="w3-padding-16"><b>1. 상품1 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          
+          <li class="w3-padding-16"><b>2. 상품2 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>3. 상품3 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>4. 상품4 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
+          <li class="w3-padding-16"><b>5. 상품5 &nbsp;</b><button class="w3-button w3-black w3-padding-large  w3-hover-black w3-opacity w3-hover-opacity-off">이동</button></li>
         </ul>
       </div>
       
