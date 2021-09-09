@@ -17,19 +17,19 @@
   <jsp-config>
   <jsp-property-group>
   <url-pattern>/view/*</url-pattern>
-  <include-prelude>/common/head.jsp</include-prelude>
-  <include-coda>/common/footer.jsp</include-coda>
+  <!--<include-prelude>/common/head.jsp</include-prelude>  
+  <include-coda>/common/footer.jsp</include-coda>-->
   </jsp-property-group>
   </jsp-config>
   
   <servlet>
-  <servlet-name>board</servlet-name>
-  <servlet-class>controller.BoardController</servlet-class>
+  <servlet-name>review</servlet-name>
+  <servlet-class>controller.ReviewController</servlet-class>
   </servlet>
  
  <servlet-mapping>
- <servlet-name>board</servlet-name>
- <url-pattern>/board/*</url-pattern>
+ <servlet-name>review</servlet-name>
+ <url-pattern>/board/review/*</url-pattern>
  </servlet-mapping>
   
  
