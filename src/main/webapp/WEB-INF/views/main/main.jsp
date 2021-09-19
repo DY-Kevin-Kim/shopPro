@@ -1,5 +1,7 @@
 <%@page contentType="text/html; charset=utf-8" 
    pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,34 +75,19 @@
  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
  <h4 id="food"><b>식품</b></h4>
     <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third w3-margin-bottom">
+    
+     <c:forEach var="itemList" items="${foodItemList}">
+      <c:url value="/productPage?itemid=${itemList.itemid}" var="url"/>
+      <div class="w3-third w3-margin-bottom" onclick="location.href='${url}'">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
+          <li class="w3-padding-16"><img src="${itemList.itemimg}"/></li>
           <li class="w3-padding-16">
-            <h5>햇반 즉석밥 작은공기, 130g, 36개</h5>
-            <span class="w3-opacity">28,490원</span>
+            <h5>${itemList.itemname}</h5>
+            <span class="w3-opacity"> ${itemList.price}원 </span>
           </li>
         </ul>
       </div>
-      <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>켈로그 콘푸로스트 시리얼</h5>
-            <span class="w3-opacity">4,590원</span>
-          </li>
-        </ul>
-      </div>
-      
-      <div class="w3-third">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>농심 올리브짜파게티 5봉</h5>
-            <span class="w3-opacity">4,270원</span>
-          </li>
-        </ul>
-      </div>   
+    </c:forEach>  
     </div>
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third w3-margin-bottom">

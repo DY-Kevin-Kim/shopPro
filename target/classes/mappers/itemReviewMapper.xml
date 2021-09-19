@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kic.mapper.itemReviewMapper">
+	<insert id="insertItemReview">
+		insert into item (reviewid, itemid, memid, orderid, rate, reviewimg1, reviewimg2, reviewimg3, content) values
+		(null, #{itemid}, #{memid}, #{orderid}, #{rate}, #{reviewimg1}, #{reviewimg2}, #{reviewimg3}, #{content})
+	</insert>
+	
+	<select id="selectAllItemReviewById" resultType="com.kic.shopPro.domain.ItemReviewVO">
+		<![CDATA[ select * from review where itemid=#{itemid} ]]>
+	</select>
+	
+</mapper>

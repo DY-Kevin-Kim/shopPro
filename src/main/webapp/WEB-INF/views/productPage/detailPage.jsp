@@ -71,23 +71,22 @@
   <div class="w3-row-padding w3-padding-16">
     <!-- 상품 전체 이미지 출력 부분 -->
     <div class="w3-col m6">
-    	<img src="resources/image/MSI.jpg" alt="labtop" style="width:100%">
+    	<img src="${ItemInfo.itemimg}" alt="not found img" style="width:100%">
     </div>
     
     <!-- 이미지 오른쪽 컨텐츠 부분 -->
     <div class="w3-col m6">
     	<!-- 제목, 가격 헤더 -->
     	<div class="w3-container w3-flat-emerald w3-gray">
-    		<h1>MSI GL65 Leopard 10SFK-062</h1>
+    		<h1> ${ItemInfo.itemname} </h1>
     		<hr style="width:100%; text-align:left; margin-left:0">
-    		<h3>1,825,200 원</h3>
+    		<h3> ${ItemInfo.price} 원</h3>
     	</div>
     	
     	<!-- 간략 이미지 설명 및 버튼 -->
     	<div class="w3-container w3-flat-emerald w3-white">
-    		<h4>노트북 성능 : 상세내용 참조</h4>
-    		<h4><i class="fa fa-close"> 적립 불가 상품</i></h4>
-    		<h4>상품 번호 : 20210909</h4>
+    		<h4>현재 재고 수량 : ${ItemInfo.stored} </h4>
+    		<h4>상품 번호 : ${ItemInfo.itemid} </h4>
     		<br>
     		<div class="w3-row w3-margin">
     			<div class="w3-col" style="width:100px">
@@ -117,20 +116,21 @@
 
 		<!-- 내용 -->
 	  <div class="content">
-	    <h3>Scroll Down to See The Effect</h3>
-	    <p>We have created a "progress bar" to <b>show how far a page has been scrolled</b>.</p>
-	    <p>It also <b>works when you scroll back up</b>.</p>
-	    <p>It is even <b>responsive</b>! Resize the browser window to see the effect.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-	    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+	  	<c:if test="${ItemDetail.content != null}">
+	    	<p>${ItemDetail.content}</p>
+	    </c:if>
+	    
+	    <c:if test="${ItemDetail.itemimage1 != null}">
+	    	<img src="${ItemDetail.itemimage1}" style="width:100%">
+	    </c:if>
+	    
+	    <c:if test="${ItemDetail.itemimage2 != null}">
+	    	<img src="${ItemDetail.itemimage2}" style="width:100%">
+	    </c:if>
+	    
+	    <c:if test="${ItemDetail.itemimage3 != null}">
+	    	<img src="${ItemDetail.itemimage3}" style="width:100%">
+	    </c:if>
 	  </div>
 	  
   </div>
@@ -145,47 +145,55 @@
   </div>
   
   <!-- Forth Grid -->
-  <div class="w3-row-padding w3-padding-16">
-  	<!-- 카드 전체 -->
-  	<div class="w3-card-4 w3-round-xlarge">
-  		<!-- 카드 헤더 -->
-  		<header class="w3-container w3-dark-gray">
-  			<h4>지윤이 바보 아니다.</h4>
-  			<h5>2021-09-09</h5>
-  			<hr style="height:2px;border-width:0;color:black;background-color:gray">
-  			<h5>MSI GL65 Leopard 10SFK-062</h5>
-  		</header>
-  		
-  		<!-- 카드 내용 -->
-  		<div class="w3-container w3-margin">
-  			<div class="w3-col m6">
-  				<div class="w3-content w3-display-container">
-  					<div class="w3-display-container mySlides">
-  						<img src="resources/image/1.jpg" style="width:100%; height:300px">
-  					</div>
-  					
-  					<div class="w3-display-container mySlides">
-  						<img src="resources/image/2.jpg" style="width:100%; height:300px">
-  					</div>
-  					
-  					<div class="w3-display-container mySlides">
-  						<img src="resources/image/3.jpg" style="width:100%; height:300px">
-  					</div>
-  					
-  					<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-  					<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
-  				</div>
-  				
-  				<script type="text/javascript" src="<c:url value="/resources/js/detailPage2.js"/>"></script>
-  			</div>
-  		</div>
-  		
-  		<!-- 카드 footer -->
-  		<footer class="w3-container w3-dark-gray">
-  			<h5>고객 상품평 들어가는 자리</h5>
-  		</footer>
-  	</div>
-  </div>
+  <c:forEach var="ItemReviewList" items="${ItemReviewList}">
+	  <div class="w3-row-padding w3-padding-16">
+	  	<!-- 카드 전체 -->
+	  	<div class="w3-card-4 w3-round-xlarge">
+	  		<!-- 카드 헤더 -->
+	  		<header class="w3-container w3-dark-gray">
+	  			<h4>작성자 : ${ItemReviewList.memid}</h4>
+	  			<h5>평점 : ${ItemReviewList.rate}</h5>
+	  			<hr style="height:2px;border-width:0;color:black;background-color:gray">
+	  			<h5>상품 : ${ItemInfo.itemname}</h5>
+	  		</header>
+	  		
+	  		<!-- 카드 내용 -->
+	  		<div class="w3-container w3-margin">
+	  			<div class="w3-col m6">
+	  				<div class="w3-content w3-display-container">
+	  					<c:if test="${ItemReviewList.reviewimg1 != null}">
+		  					<div class="w3-display-container mySlides">
+		  						<img src="${ItemReviewList.reviewimg1}" style="width:100%; height:300px">
+		  					</div>
+	  					</c:if>
+	  					
+	  					<c:if test="${ItemReviewList.reviewimg1 != null}">
+		  					<div class="w3-display-container mySlides">
+		  						<img src="${ItemReviewList.reviewimg2}" style="width:100%; height:300px">
+		  					</div>
+	  					</c:if>
+	  					
+	  					<c:if test="${ItemReviewList.reviewimg1 != null}">
+		  					<div class="w3-display-container mySlides">
+		  						<img src="${ItemReviewList.reviewimg3}" style="width:100%; height:300px">
+		  					</div>
+	  					</c:if>
+	  					<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+	  					<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+	  				</div>
+	  				
+	  				<script type="text/javascript" src="<c:url value="/resources/js/detailPage2.js"/>"></script>
+	  			</div>
+	  		</div>
+	  		
+	  		<!-- 카드 footer -->
+	  		<footer class="w3-container w3-dark-gray">
+	  			<h5>리뷰 : ${ItemReviewList.content}</h5>
+	  		</footer>
+	  	</div>
+	  </div>
+  </c:forEach>
+  
   
 	
   <!-- footer -->
