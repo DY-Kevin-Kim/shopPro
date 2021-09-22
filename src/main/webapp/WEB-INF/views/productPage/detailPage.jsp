@@ -23,39 +23,46 @@
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
-    <h4><b>로그인</b></h4>
-    <form action="#" target="_blank">
-    	<div class="w3-section">
-    		<label>아이디</label>
-    		<input class="w3-input w3-border" type="text" name="Name" required>
-    	</div>
-    	<div class="w3-section">
-    		<label>비밀번호</label>
-    		<input class="w3-input w3-border" type="text" name="Passwd" required>
-    	</div>
-    </form>
+    <h2 onclick="location.href ='/shopPro/main'"><b>쇼핑몰 사이트</b></h2>
   </div>
   
+ 
+    <!--메뉴  -->
+  <div class="w3-bar-block"> 
+    <c:if test="${login == null}">
+    	<h4 class="w3-padding"><b>로그인</b></h4>
+	    <form action="/shopPro/loginProcess" class="w3-padding" target="_blank" method="post">
+	    	<div class="w3-section">
+	    		<label>아이디</label>
+	    		<input class="w3-input w3-border" type="text" name="id" required>
+	    	</div>
+	    	<div class="w3-section">
+	    		<label>비밀번호</label>
+	    		<input class="w3-input w3-border" type="text" name="pass" required>
+	    	</div>
+	    	<button type="submit" class="btn btn-success">로그인</button>
+	    </form>
+    </c:if>
+    
+    <c:if test="${login != null}">
+    	<p align="left" style="margin-left:20px; color:blue">${login.id}님 환영합니다.</p>
+    </c:if>
+    
+    <a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
+    <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
+  </div>
 
-  <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">
-    	<i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    	<i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-    	<i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
-  </div>
+  </div>  
   
-  <div class="w3-panel w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <!-- category -->
+  <div class="w3-bar-block">   
+    <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">- 식품</a> 
+    <a href="#cloth" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">- 패션의류/잡화</a> 
+	<a href="#beauty" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">- 뷰티</a> 
+	<a href="#digital" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">- 가전디지털</a> 
+	<a href="#office" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">- 문구/오피스</a> 
   </div>
-</nav>
+</nav> 
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
