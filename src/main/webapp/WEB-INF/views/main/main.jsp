@@ -27,18 +27,24 @@
   
   <!--메뉴  -->
   <div class="w3-bar-block"> 
+    <c:if test="${login == null}">
+    	<h4 class="w3-padding"><b>로그인</b></h4>
+	    <form action="/shopPro/loginProcess" class="w3-padding" target="_blank" method="post">
+	    	<div class="w3-section">
+	    		<label>아이디</label>
+	    		<input class="w3-input w3-border" type="text" name="id" required>
+	    	</div>
+	    	<div class="w3-section">
+	    		<label>비밀번호</label>
+	    		<input class="w3-input w3-border" type="text" name="pass" required>
+	    	</div>
+	    	<button type="submit" class="btn btn-success">로그인</button>
+	    </form>
+    </c:if>
     
-        <h4 class="w3-padding"><b>로그인</b></h4>
-    <form action="#" class="w3-padding" target="_blank">
-    	<div class="w3-section">
-    		<label>아이디</label>
-    		<input class="w3-input w3-border" type="text" name="Name" required>
-    	</div>
-    	<div class="w3-section">
-    		<label>비밀번호</label>
-    		<input class="w3-input w3-border" type="text" name="Passwd" required>
-    	</div>
-    </form>
+    <c:if test="${login != null}">
+    	<p align="left" style="margin-left:20px; color:blue">${login.id}님 환영합니다.</p>
+    </c:if>
     
     <a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
     <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
