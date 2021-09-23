@@ -38,14 +38,13 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value="/reviewWritepro", method=RequestMethod.POST)
-	public String reviewWrite(ItemReviewVO vo) throws Exception {
+	public String addReviewcard(ItemReviewVO vo) throws Exception {
 		
 		System.out.println(vo);
 		
 		itemReviewService.addReview(vo);
+	
 		
-		
-		
-		return "redirect:/productPage/detailPage";
+		return "redirect:/productPage?itemid="+vo.getItemid();
 	}
 }

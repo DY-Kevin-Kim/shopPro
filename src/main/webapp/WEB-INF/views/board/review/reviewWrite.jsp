@@ -30,7 +30,7 @@ label span{
     </a>
     <!-- <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"> --><br><br>
     <h4><b>Review</b></h4>
-    <p class="w3-text-grey"> 상품 이름 </p>
+    <p class="w3-text-grey">${ItemInfo.itemname}</p>
   </div>
   <div class="w3-bar-block">
     <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
@@ -44,10 +44,10 @@ label span{
 
 
 <div class="w3-main" style="margin-left:330px">
-<form action="/shopPro/reviewWritepro" method="post" enctype="multipart/form-data">
+<form action="/shopPro/reviewWritepro" method="post">
 	<div class="w3-content" align=center>
 		<input type="hidden" name="itemid" value="${ItemInfo.itemid}">
-		<input type="hidden" name="memid" value="${login.memid}">
+		<input type="hidden" name="memid" value="${login.id}">
 		<input type="hidden" name="orderid" value="${ItemInfo.itemid}">
 		<table>
 			<caption>리뷰작성</caption>
