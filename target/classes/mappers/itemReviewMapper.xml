@@ -8,6 +8,11 @@
 		(null, #{itemid}, #{memid}, #{orderid}, #{rate}, #{reviewimg1}, #{reviewimg2}, #{reviewimg3}, #{content})
 	</insert>
 	
+	<insert id="insertReview" parameterType="ItemReviewVO" useGeneratedKeys="true" keyProperty="reviewid">
+		insert into review (itemid, memid, orderid, rate, reviewimg1, reviewimg2, reviewimg3, content, subject) values
+		(#{itemid}, #{memid}, #{orderid}, #{rate}, #{reviewimg1}, #{reviewimg2}, #{reviewimg3}, #{content}, #{subject})
+	</insert>
+	
 	<select id="selectAllItemReviewById" resultType="com.kic.shopPro.domain.ItemReviewVO">
 		<![CDATA[ select * from review where itemid=#{itemid} ]]>
 	</select>

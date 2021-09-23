@@ -19,21 +19,6 @@ label span{
 
 <title>Insert title here</title>
 <script>
-	function review_submit(){
-		var f = document.f;
-		if(f.subject.value==""){
-			alert("제목을 입력하세요")
-			f.subject.focus();
-			return;
-		}
-		if(f.content.value==""){
-			alert("내용을 입력하세요")
-			f.content.focus();
-			return;
-		}
-		f.submit();
-	}
-
 </script>
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -45,7 +30,7 @@ label span{
     </a>
     <!-- <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"> --><br><br>
     <h4><b>Review</b></h4>
-    <p class="w3-text-grey"> 상품 이름 </p>
+    <p class="w3-text-grey">${ItemInfo.itemname}</p>
   </div>
   <div class="w3-bar-block">
     <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
@@ -59,25 +44,34 @@ label span{
 
 
 <div class="w3-main" style="margin-left:330px">
-<form action="reviewWritePro" method="post"
-	enctype="multipart/form-data" name="f">
-	<div class="w3-content">
+<form action="/shopPro/reviewWritepro" method="post">
+	<div class="w3-content" align=center>
+		<input type="hidden" name="itemid" value="${ItemInfo.itemid}">
+		<input type="hidden" name="memid" value="${login.id}">
+		<input type="hidden" name="orderid" value="${ItemInfo.itemid}">
 		<table>
 			<caption>리뷰작성</caption>
 			<tr><td>제목</td><td><input type="text" name="subject" style="width:100%"></td></tr>
 			<tr>
 				<td>별점</td>
-				<td ><input type="radio"  value="1" name="rate" checked> <label><span>1점</span></label>
-					<input type="radio"  value="2"  name="rate" >    <label><span>2점</span></label>
-					<input type="radio"  value="3" name="rate">     <label><span>3점</span></label>
-					<input type="radio"  value="4"  name="rate" > <label><span>4점</span></label>
-					<input type="radio"  value="5"  name="rate" ><label><span>5점</span></label>
+				<td ><input type="radio"  value="${1}" name="rate" checked> <label><span>1점</span></label>
+					<input type="radio"  value="${1.5}"  name="rate" >    <label><span>1.5점</span></label>
+					<input type="radio"  value="${2}"  name="rate" >    <label><span>2점</span></label>
+					<input type="radio"  value="${2.5}"  name="rate" >    <label><span>2.5점</span></label>
+					<input type="radio"  value="${3}" name="rate">     <label><span>3점</span></label>
+					<input type="radio"  value="${3.5}"  name="rate" >    <label><span>3.5점</span></label>
+					<input type="radio"  value="${4}"  name="rate" > <label><span>4점</span></label>
+					<input type="radio"  value="${4.5}"  name="rate" >    <label><span>4.5점</span></label>
+					<input type="radio"  value="${5}"  name="rate" ><label><span>5점</span></label>
 			</tr>
 			<tr><td>내용</td><td><textarea rows="10" name="content" style="width:100%"></textarea></tr>
-			<tr><td>첨부파일</td><td><input type="file" name="file1"></td></tr>
-			<tr><td style="text-align:center">
-				<a href="javascript:review_submit()">[리뷰등록]</a></td></tr>
+			<tr><td>첨부파일1</td><td><input type="file" name="reviewimg1"></td></tr>
+			<tr><td>첨부파일2</td><td><input type="file" name="reviewimg2"></td></tr>
+			<tr><td>첨부파일3</td><td><input type="file" name="reviewimg3"></td></tr>
 		</table>
+		<dl>
+			<dd><input type="submit" name="submit" value="[리뷰 등록]"></dd>
+		</dl>
 	</div>
 	<br><br><br>
 	
