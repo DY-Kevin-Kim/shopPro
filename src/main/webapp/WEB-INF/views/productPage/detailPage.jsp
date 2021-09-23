@@ -50,6 +50,7 @@
     
     <a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
     <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
+    <a onclick="location.href ='/shopPro/reviewWrite?itemid=${ItemInfo.itemid}'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>리뷰 쓰기</b></a> 
   </div>
 
   </div>  
@@ -158,6 +159,7 @@
 	  	<div class="w3-card-4 w3-round-xlarge">
 	  		<!-- 카드 헤더 -->
 	  		<header class="w3-container w3-dark-gray">
+	  			<h3>제목 : ${ItemReviewList.subject} </h3>
 	  			<h4>작성자 : ${ItemReviewList.memid}</h4>
 	  			<h5>평점 : ${ItemReviewList.rate}</h5>
 	  			<hr style="height:2px;border-width:0;color:black;background-color:gray">

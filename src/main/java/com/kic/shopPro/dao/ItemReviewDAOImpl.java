@@ -21,4 +21,7 @@ public class ItemReviewDAOImpl implements ItemReviewDAO{
 		irVO = sqlSession.selectList(namespace+".selectAllItemReviewById", itemid);
 		return irVO;
 	}
+	public void addReview(ItemReviewVO vo) throws Exception{
+		sqlSession.insert(namespace+".insertReview",vo);
+	}
 }
