@@ -15,8 +15,8 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/shoppro?serverTimezone=Asia/Seoul"/>
-		<property name="username" value="root"/>
-		<property name="password" value="passwd"/>
+		<property name="username" value="kic2"/>
+		<property name="password" value="1111"/>
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
