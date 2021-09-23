@@ -8,4 +8,29 @@
 		select * from member where id=#{id} AND pass=#{pass}
 	</select>
 	
+	<select id="readVisit" resultType="com.kic.shopPro.domain.VisitorVO">
+		<![CDATA[ (select count(*) visitor from visitor group by visitdate order by visitdate desc limit 0, 2)
+					UNION
+					(select count(*) visitor from visitor) ]]>
+	</select>
+	
+	<select id="readVisitGraph" resultType="com.kic.shopPro.domain.VisitorGraphVO">
+		<![CDATA[ select visitdate, count(*) visitor from visitor group by visitdate order by visitdate limit 0, 5]]>
+	</select>
+	
+	<insert id="addVisit">
+	 	<![CDATA[ insert into visitor(visitdate) values(NOW())  ]]>
+    </insert>
+    
+    <select id="reachedCost" resultType="int">
+		<![CDATA[   select sum(price) reachCost from orderlist where pay= "결제 완료"]]>
+	</select>
+	
+	<select id="readTopItem" resultType="com.kic.shopPro.domain.TopItemVO">
+		<![CDATA[ 	select i.itemname
+					from orderlist o, item i
+					where o.orderid = i.itemid
+					and pay= "결제 완료" order by count desc  ]]>
+	</select>
+	
 </mapper>
