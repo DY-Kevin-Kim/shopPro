@@ -14,4 +14,8 @@ public class LoginServiceImpl implements LoginService {
 	public MemberVO loginServiceMethod(MemberVO login) throws Exception{
 		return loginDAO.getLoginResult(login);
 	}
+	
+	public void signup(MemberVO vo) throws Exception{
+		loginDAO.signup(vo);
+	}
 }

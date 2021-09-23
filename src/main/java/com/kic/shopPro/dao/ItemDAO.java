@@ -10,4 +10,6 @@ public interface ItemDAO {
 	public List<ItemVO> readAllFoodItems() throws Exception;
 	public ItemDetailVO readFoodItemsDetailInfoById(String itemid) throws Exception;
 	public ItemVO readFoodItemById(String itemid) throws Exception;
+	public List<ItemVO> readAllClothItems() throws Exception;
+
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,8 @@ public class UserController {
 	
 	@Autowired
 	private ItemService itemService;
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
 	
 	@RequestMapping(value="/admin/adminPage", method=RequestMethod.GET)
 	public String adminPageGetMethod() {
@@ -34,10 +38,23 @@ public class UserController {
 		return "MyPage";
 	}
 	
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
+	public void signupGetMethod() throws Exception{
+		logger.info("get signup");
+
+	}
+	
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
+	public String signupPostMethod(MemberVO vo) throws Exception {
+		loginService.signup(vo);
+		return "redirect:/main";
+	}
 	@RequestMapping(value="/loginProcess", method=RequestMethod.POST)
 	public String loginProcessMethod(MemberVO memVO, Model model, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		List<ItemVO> iVO = itemService.readAllFoodItemsMethod();
+		List<ItemVO> iVO_cloth = itemService.readAllClothItemsMethod();
+
 		
 		try {
 			MemberVO login = loginService.loginServiceMethod(memVO);
@@ -56,6 +73,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 		model.addAttribute("foodItemList", iVO);
+		model.addAttribute("clothItemList",iVO_cloth);
 		return "main/main";
 	}
 }
