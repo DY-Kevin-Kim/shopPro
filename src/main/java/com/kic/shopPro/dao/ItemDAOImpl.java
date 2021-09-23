@@ -45,5 +45,12 @@ public class ItemDAOImpl implements ItemDAO{
 		return idVO;
 	}
 	
+	// 패션의류/잡화에 대한 모든 아이템 출력
+	public List<ItemVO> readAllClothItems() throws Exception{
+		List<ItemVO> iVO = new ArrayList<ItemVO>();
+		iVO = sqlSession.selectList(namespace+".selectAllClothItem");
+		return iVO;
+	}
+	
 	
 }
