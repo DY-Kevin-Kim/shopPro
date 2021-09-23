@@ -28,7 +28,6 @@
   <!--메뉴  -->
   <div class="w3-bar-block"> 
     <c:if test="${login == null}">
-    	<h4 class="w3-padding"><b>로그인</b></h4>
 	    <form action="/shopPro/loginProcess" class="w3-padding" target="_blank" method="post">
 	    	<div class="w3-section">
 	    		<label>아이디</label>
@@ -36,22 +35,34 @@
 	    	</div>
 	    	<div class="w3-section">
 	    		<label>비밀번호</label>
-	    		<input class="w3-input w3-border" type="text" name="pass" required>
+	    		<input class="w3-input w3-border" type="password" name="pass" required>
 	    	</div>
-	    	<button type="submit" class="btn btn-success">로그인</button>
-	    	<button type="button" class="btn btn-success" onclick="location.href='/shopPro/signUpPage'">회원가입</button>
+	    	<div align=center>
+		    	<button type="submit" class="btn btn-success">로그인</button>
+		    	<input type="button" value="회원가입" onclick="location.href='signup' ">
+	    	</div>
+
 	    </form>
     </c:if>
     
     <c:if test="${login != null}">
     	<p align="left" style="margin-left:20px; color:blue">${login.id}님 환영합니다.</p>
+    	<!-- <a onclick="location.href ='/shopPro/main'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>로그아웃</b> -->
+    	<a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
     </c:if>
     
-    <a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
-    <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
+    
+    <c:choose>
+	    <c:when test=" ${id == 'admin'}">
+	    	<p align="left" style="margin-left:20px; color:blue">${login.id}님 환영합니다.</p>
+	    	<a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
+	
+	    </c:when>
+    </c:choose>
+    
+    
   </div>
 
-  </div>  
   
   <!-- category -->
   <div class="w3-bar-block">   
@@ -96,7 +107,7 @@
       </div>
     </c:forEach>  
     </div>
-    <div class="w3-row-padding" style="margin:0 -16px">
+  <!--   <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
           <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
@@ -124,75 +135,62 @@
           </li>
         </ul>
       </div>   
-    </div>
+    </div> -->
   </div>
     
   <div class="w3-container w3-padding-large w3-grey">
     <h4 id="cloth"><b>패션의류/잡화</b></h4>
     <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third w3-margin-bottom">
+    
+     <c:forEach var="itemList" items="${clothItemList}">
+      <c:url value="/productPage?itemid=${itemList.itemid}" var="url"/>
+      <div class="w3-third w3-margin-bottom" onclick="location.href='${url}'">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
+          <li class="w3-padding-16"><img src="${itemList.itemimg}"/></li>
           <li class="w3-padding-16">
-            <h5>발락트 남녀공용 오버핏 무지 반팔티셔츠</h5>
-            <span class="w3-opacity">9,900원</span>
+            <h5>${itemList.itemname}</h5>
+            <span class="w3-opacity"> ${itemList.price}원 </span>
           </li>
         </ul>
       </div>
-      <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>에이블팩토리 마린 몰랑이 실내화</h5>
-            <span class="w3-opacity">8,100원</span>
-          </li>
-        </ul>
-      </div>   
-      <div class="w3-third">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>리빙톡 미끄럼방지 욕실 슬리퍼</h5>
-            <span class="w3-opacity">9,900원</span>
-          </li>
-        </ul>
-      </div>   
-    </div>  
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>발락트 남녀공용 오버핏 무지 반팔티셔츠</h5>
-            <span class="w3-opacity">9,900원</span>
-          </li>
-        </ul>
-      </div>
-      <div class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>에이블팩토리 마린 몰랑이 실내화</h5>
-            <span class="w3-opacity">8,100원</span>
-          </li>
-        </ul>
-      </div>   
-      <div class="w3-third">
-        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
-          <li class="w3-padding-16">
-            <h5>리빙톡 미끄럼방지 욕실 슬리퍼</h5>
-            <span class="w3-opacity">9,900원</span>
-          </li>
-        </ul>
-      </div>   
+    </c:forEach>  
     </div>
+
+<!--     <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
+          <li class="w3-padding-16">
+            <h5>발락트 남녀공용 오버핏 무지 반팔티셔츠</h5>
+            <span class="w3-opacity">9,900원</span>
+          </li>
+        </ul>
+      </div>
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
+          <li class="w3-padding-16">
+            <h5>에이블팩토리 마린 몰랑이 실내화</h5>
+            <span class="w3-opacity">8,100원</span>
+          </li>
+        </ul>
+      </div>   
+      <div class="w3-third">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-padding-16"><img src="resources/image/product.jpg"/></li>
+          <li class="w3-padding-16">
+            <h5>리빙톡 미끄럼방지 욕실 슬리퍼</h5>
+            <span class="w3-opacity">9,900원</span>
+          </li>
+        </ul>
+      </div>   
+    </div> -->
 </div>
 
 
   <div class="w3-container w3-padding-large" style="margin-bottom:32px">
   <h4 id="beauty"><b>뷰티</b></h4>
-    <!-- 상품 추천 area -->
+  
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third w3-margin-bottom">
         <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
