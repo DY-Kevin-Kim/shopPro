@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kic.shopPro.domain.ItemVO;
 import com.kic.shopPro.domain.MemberVO;
@@ -20,8 +21,8 @@ import com.kic.shopPro.domain.VisitorGraphVO;
 import com.kic.shopPro.domain.VisitorVO;
 import com.kic.shopPro.service.ItemService;
 import com.kic.shopPro.service.LoginService;
+import com.kic.shopPro.service.RegisterService;
 import com.kic.shopPro.service.VisitorService;
-
 @Controller
 public class UserController {
 	@Autowired
@@ -35,20 +36,23 @@ public class UserController {
 	@Autowired
 	private VisitorService visitorService;
 	
+	@Autowired
+	private RegisterService rService;
+	
 	@RequestMapping(value="/admin/adminPage", method=RequestMethod.GET)
 	public String adminPageGetMethod(Model model) {
 		
 		visitorService.addVisitor();
 		
-		List<VisitorVO> visitors = visitorService.readVisitorList(); // ¿À´Ã ¹æ¹®ÀÚ, ¾îÁ¦ ¹æ¹®ÀÚ, ´©Àû ¹æ¹®ÀÚ ¼ö Ãâ·Â ±â´É
-		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // ¹æ¹®ÀÚ ±×·¡ÇÁ Ãâ·Â ±â´É
+		List<VisitorVO> visitors = visitorService.readVisitorList(); // ì˜¤ëŠ˜ ë°©ë¬¸ì, ì–´ì œ ë°©ë¬¸ì, ëˆ„ì  ë°©ë¬¸ì ìˆ˜ ì¶œë ¥ ê¸°ëŠ¥
+		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // ë°©ë¬¸ì ê·¸ë˜í”„ ì¶œë ¥ ê¸°ëŠ¥
 		
-		//String text = "°áÁ¦ ¿Ï·á";
-		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50¸¸¿øÀ» ¸ñÇ¥ ±İ¾×À¸·ÎÇÑ ÆÛ¼¾Æ®°ª ÀúÀå
+		//String text = "ê²°ì œ ì™„ë£Œ";
+		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50ë§Œì›ì„ ëª©í‘œ ê¸ˆì•¡ìœ¼ë¡œí•œ í¼ì„¼íŠ¸ê°’ ì €ì¥
 		
 		List<TopItemVO> topItemList = visitorService.readTopItemList();
 		
-		//¿À´Ã,¾îÁ¦ ´©Àû ¹æ¹®ÀÚ¼ö Ãâ·Â
+		//ì˜¤ëŠ˜,ì–´ì œ ëˆ„ì  ë°©ë¬¸ììˆ˜ ì¶œë ¥
 		model.addAttribute("visitors", visitors);
 		
 		System.out.println("===========================" + visitorGraph.size());
@@ -56,13 +60,13 @@ public class UserController {
 		System.out.println("===========================" + visitorService.reachedTotalCost());
 		System.out.println("===========================" +reachedCost);
 		
-		// ¹æ¹®ÀÚ ±×·¡ÇÁ Ãâ·Â
+		// ë°©ë¬¸ì ê·¸ë˜í”„ ì¶œë ¥
 		model.addAttribute("visitorGraph", visitorGraph);
 		
-		// ¸ñÇ¥ µµ´Ş ¼öÀÍ·ü ÃßÀÌ Ãâ·Â
+		// ëª©í‘œ ë„ë‹¬ ìˆ˜ìµë¥  ì¶”ì´ ì¶œë ¥
 		model.addAttribute("reachedCost", reachedCost);
 		
-		// ÀÎ±â Ç°¸ñ ¸®½ºÆ®
+		// ì¸ê¸° í’ˆëª© ë¦¬ìŠ¤íŠ¸
 		model.addAttribute("topItemList", topItemList);
 		
 		return "admin/adminPage";
@@ -109,6 +113,7 @@ public class UserController {
 		}
 		model.addAttribute("foodItemList", iVO);
 		model.addAttribute("clothItemList",iVO_cloth);
-		return "main/main";
+    return "redirect:/main";
 	}
+	
 }
