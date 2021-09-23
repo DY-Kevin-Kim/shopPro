@@ -64,8 +64,12 @@ public class HomeController {
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String mainPageMethod(Model model) throws Exception {
-		List<ItemVO> iVO = itemService.readAllFoodItemsMethod();
-		model.addAttribute("foodItemList", iVO);
+		List<ItemVO> iVO_food = itemService.readAllFoodItemsMethod();
+		model.addAttribute("foodItemList", iVO_food);
+		
+		List<ItemVO> iVO_cloth = itemService.readAllClothItemsMethod();
+		model.addAttribute("clothItemList", iVO_cloth);
+		
 		return "main/main";
 	}
 	

@@ -22,5 +22,10 @@
 	
 	<select id="selectFoodItemByID" resultType="com.kic.shopPro.domain.ItemVO">
 		<![CDATA[ select * from item where itemid=#{itemid} ]]>
+		
+		
+	</select>
+	<select id="selectAllClothItem" resultType="com.kic.shopPro.domain.ItemVO">
+		select * from item where itemcategory = "패션의류/잡화"
 	</select>
 </mapper>
