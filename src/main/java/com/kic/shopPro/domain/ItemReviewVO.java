@@ -5,12 +5,26 @@ public class ItemReviewVO {
 	String itemid;
 	String memid;
 	String orderid;
+	String subject;
 	double rate;
 	String reviewimg1;
 	String reviewimg2;
 	String reviewimg3;
 	String content;
 	
+
+	@Override
+	public String toString() {
+		return "ItemReviewVO [reviewid=" + reviewid + ", itemid=" + itemid + ", memid=" + memid + ", orderid=" + orderid
+				+ ", subject=" + subject + ", rate=" + rate + ", reviewimg1=" + reviewimg1 + ", reviewimg2="
+				+ reviewimg2 + ", reviewimg3=" + reviewimg3 + ", content=" + content + "]";
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
 	public int getReviewid() {
 		return reviewid;
 	}

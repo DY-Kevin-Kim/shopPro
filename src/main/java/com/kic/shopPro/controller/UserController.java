@@ -10,11 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kic.shopPro.domain.ItemVO;
 import com.kic.shopPro.domain.MemberVO;
 import com.kic.shopPro.service.ItemService;
 import com.kic.shopPro.service.LoginService;
+import com.kic.shopPro.service.RegisterService;
 
 @Controller
 public class UserController {
@@ -23,6 +25,9 @@ public class UserController {
 	
 	@Autowired
 	private ItemService itemService;
+	
+	@Autowired
+	private RegisterService rService;
 	
 	@RequestMapping(value="/admin/adminPage", method=RequestMethod.GET)
 	public String adminPageGetMethod() {
@@ -56,6 +61,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 		model.addAttribute("foodItemList", iVO);
-		return "main/main";
+		return "redirect:/main";
 	}
+	
 }

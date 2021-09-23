@@ -16,4 +16,8 @@ public class ItemReviewServiceImpl implements ItemReviewService {
 	public List<ItemReviewVO> readAllItemReviewByItemIdMethod(String itemid) throws Exception{
 		return itemReviewDAO.readAllItemReviewByItemId(itemid);
 	}
+	
+	public void addReview(ItemReviewVO vo) throws Exception{
+		itemReviewDAO.addReview(vo);
+	}
 }

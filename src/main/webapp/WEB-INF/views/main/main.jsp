@@ -39,6 +39,7 @@
 	    		<input class="w3-input w3-border" type="text" name="pass" required>
 	    	</div>
 	    	<button type="submit" class="btn btn-success">로그인</button>
+	    	<button type="button" class="btn btn-success" onclick="location.href='/shopPro/signUpPage'">회원가입</button>
 	    </form>
     </c:if>
     
