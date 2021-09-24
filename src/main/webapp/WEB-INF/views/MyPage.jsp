@@ -41,7 +41,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <div class="w3-section w3-bottombar w3-padding-16">
     
       <button class="w3-button w3-white w3-hide-small">마이페이지</button>
-      <button class="w3-button w3-white w3-hide-small">장바구니</button>
+      <button class="w3-button w3-white w3-hide-small" onclick="location.href='/shopPro/cart'">장바구니</button>
       <button class="w3-button w3-white w3-hide-small">주문하기</button>
       <button class="w3-button w3-white w3-hide-small">상품리뷰</button>
     </div>

@@ -56,6 +56,6 @@ public class UserController {
 			e.printStackTrace();
 		}
 		model.addAttribute("foodItemList", iVO);
-		return "main/main";
+		return "redirect: /shopPro/main";
 	}
 }

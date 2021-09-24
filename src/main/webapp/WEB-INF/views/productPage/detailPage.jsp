@@ -96,14 +96,17 @@
     		<h4>상품 번호 : ${ItemInfo.itemid} </h4>
     		<br>
     		<div class="w3-row w3-margin">
-    			<div class="w3-col" style="width:100px">
-    				<input class="w3-input w3-border" style="width:100%" type="text" placeholder="수량">
+    		<form id="buy" method="POST">
+    		<div class="w3-col" style="width:100px">
+    				<input class="w3-input w3-border" style="width:100%" type="text" name="itemcount" placeholder="수량">
+    				<input type="hidden" name="itemid" value="${ItemInfo.itemid}">
     			</div>
     			
     			<div class="w3-rest" align="right">
-    				<button class="w3-button w3-black w3-round-large" style="width:150px">장바구니</button>
+    				<button class="w3-button w3-black w3-round-large" style="width:150px" formaction="cart">장바구니</button>
     				<button class="w3-button w3-black w3-round-large" style="width:150px">바로구매</button>
     			</div>
+    		</form>
     		</div>
     	</div>
     </div>

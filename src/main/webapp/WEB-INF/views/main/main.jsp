@@ -50,7 +50,6 @@
     <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
   </div>
 
-  </div>  
   
   <!-- category -->
   <div class="w3-bar-block">   

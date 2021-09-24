@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kic.mappers.cartMapper">
+	<select id="selectCart"
+		resultType="com.kic.shopPro.domain.CartVO">
+	<![CDATA[ select * from cart where memid=#{id} ]]>
+	</select>
+
+	<insert id="insertCart">
+	<![CDATA[ insert into cart(memid,itemid,itemimg,itemname,price,itemcount) values(#{memid},#{itemid},#{itemimg},#{itemname},#{price},#{itemcount}) ]]>
+	</insert>
+
+	<select id="selectCartOne"
+		resultType="com.kic.shopPro.domain.CartVO">
+	<![CDATA[ select * from cart where memid=#{memid} and itemid=#{itemid} ]]>
+	</select>
+
+	<update id="updateCart">
+	<![CDATA[ update cart set price=#{price}, itemcount=#{itemcount} where memid=#{memid} and itemid=#{itemid} ]]>
+	</update>
+
+	<delete id="deleteCart">
+	<![CDATA[ delete from cart where memid=#{memid} and itemid=#{itemid} ]]>
+	</delete>
+</mapper>
