@@ -105,7 +105,11 @@
     			
     			<div class="w3-rest" align="right">
     				<button class="w3-button w3-black w3-round-large" style="width:150px" formaction="cart">장바구니</button>
+<<<<<<< HEAD
     				<button class="w3-button w3-black w3-round-large" style="width:150px" formaction="pay">바로구매</button>
+=======
+    				<button class="w3-button w3-black w3-round-large" style="width:150px">바로구매</button>
+>>>>>>> main
     			</div>
     		</form>
     		</div>

@@ -11,6 +11,9 @@ public interface ItemDAO {
 	public ItemDetailVO readFoodItemsDetailInfoById(String itemid) throws Exception;
 	public ItemVO readFoodItemById(String itemid) throws Exception;
 	public List<ItemVO> readAllClothItems() throws Exception;
+<<<<<<< HEAD
 	public void updateItem(ItemVO iVO) throws Exception;
+=======
+>>>>>>> main
 
 }
