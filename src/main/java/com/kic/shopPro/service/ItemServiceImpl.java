@@ -41,4 +41,7 @@ public class ItemServiceImpl implements ItemService{
 		return iDAO.readAllClothItems();
 	}
 	
+	public void updateItemStore(ItemVO iVO) throws Exception{
+		iDAO.updateItem(iVO);
+	}
 }
