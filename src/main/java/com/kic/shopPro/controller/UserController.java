@@ -50,15 +50,15 @@ public class UserController {
 		
 		visitorService.addVisitor();
 		
-		List<VisitorVO> visitors = visitorService.readVisitorList(); // �삤�뒛 諛⑸Ц�옄, �뼱�젣 諛⑸Ц�옄, �늻�쟻 諛⑸Ц�옄 �닔 異쒕젰 湲곕뒫
-		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 諛⑸Ц�옄 洹몃옒�봽 異쒕젰 湲곕뒫
+		List<VisitorVO> visitors = visitorService.readVisitorList(); // 占쎌궎占쎈뮎 獄쎻뫖揆占쎌쁽, 占쎈선占쎌젫 獄쎻뫖揆占쎌쁽, 占쎈듇占쎌읅 獄쎻뫖揆占쎌쁽 占쎈땾 �빊�뮆�젾 疫꿸퀡�뮟
+		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 獄쎻뫖揆占쎌쁽 域밸챶�삋占쎈늄 �빊�뮆�젾 疫꿸퀡�뮟
 		
-		//String text = "寃곗젣 �셿猷�";
-		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50留뚯썝�쓣 紐⑺몴 湲덉븸�쑝濡쒗븳 �띁�꽱�듃媛� ���옣
+		//String text = "野껉퀣�젫 占쎌끏�뙴占�";
+		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50筌띾슣�뜚占쎌뱽 筌뤴뫚紐� 疫뀀뜆釉몌옙�몵嚥≪뮉釉� 占쎈쓠占쎄쉽占쎈뱜揶쏉옙 占쏙옙占쎌삢
 		
 		List<TopItemVO> topItemList = visitorService.readTopItemList();
 		
-		//�삤�뒛,�뼱�젣 �늻�쟻 諛⑸Ц�옄�닔 異쒕젰
+		//占쎌궎占쎈뮎,占쎈선占쎌젫 占쎈듇占쎌읅 獄쎻뫖揆占쎌쁽占쎈땾 �빊�뮆�젾
 		model.addAttribute("visitors", visitors);
 		
 		System.out.println("===========================" + visitorGraph.size());
@@ -66,13 +66,13 @@ public class UserController {
 		System.out.println("===========================" + visitorService.reachedTotalCost());
 		System.out.println("===========================" +reachedCost);
 		
-		// 諛⑸Ц�옄 洹몃옒�봽 異쒕젰
+		// 獄쎻뫖揆占쎌쁽 域밸챶�삋占쎈늄 �빊�뮆�젾
 		model.addAttribute("visitorGraph", visitorGraph);
 		
-		// 紐⑺몴 �룄�떖 �닔�씡瑜� 異붿씠 異쒕젰
+		// 筌뤴뫚紐� 占쎈즲占쎈뼎 占쎈땾占쎌뵡�몴占� �빊遺우뵠 �빊�뮆�젾
 		model.addAttribute("reachedCost", reachedCost);
 		
-		// �씤湲� �뭹紐� 由ъ뒪�듃
+		// 占쎌뵥疫뀐옙 占쎈�뱄쭗占� �뵳�딅뮞占쎈뱜
 		model.addAttribute("topItemList", topItemList);
 		
 		return "admin/adminPage";
@@ -130,7 +130,7 @@ public class UserController {
 	      List<String> itemname=new ArrayList<String>();
 	      List<String> itemid=new ArrayList<String>();
 	      if(mypageinfo==null) {
-	         String msg="로그인이 되어있지 않습니다.";
+	         String msg="濡쒓렇�씤�씠 �릺�뼱�엳吏� �븡�뒿�땲�떎.";
 	         String url="main";
 	         model.addAttribute("msg",msg);
 	         model.addAttribute("url",url);
@@ -158,7 +158,7 @@ public class UserController {
 	         return "Mypage/ChangeInfo";
 	      }
 	      else {
-	         model.addAttribute("msg","비밀번호가 일치하지 않습니다.");
+	         model.addAttribute("msg","鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.");
 	         model.addAttribute("url","UpdateMeminfo");
 	         return "alert";
 	      }
@@ -181,13 +181,13 @@ public class UserController {
 	      int num=mpageService.UpdateMemInfo(request.getParameter("changeid"),request.getParameter("changePS"),request.getParameter("changeAddress"),mypageinfo.getId(),mypageinfo.getPass());
 	      if(num>0) {
 	         
-	         model.addAttribute("msg","정보가 수정되었습니다.");
+	         model.addAttribute("msg","�젙蹂닿� �닔�젙�릺�뿀�뒿�땲�떎.");
 	         model.addAttribute("url","mypage");
 	         session.removeAttribute("login");
 	         session.setAttribute("login", newVO);
 	         return "alert";
 	      }else {
-	         model.addAttribute("msg","수정오류!");
+	         model.addAttribute("msg","�닔�젙�삤瑜�!");
 	         model.addAttribute("url","ChangeInfo");
 	         return "alert";
 	      }
@@ -197,4 +197,36 @@ public class UserController {
 	   public String UpdateMeminfo() throws Exception{
 	      return "Mypage/UpdateMeminfo";
 	   }
+	   
+	   @RequestMapping(value = "/signout", method = RequestMethod.GET)
+		public String signout(HttpSession session) throws Exception {
+		 logger.info("get logout");
+		 
+		 loginService.signout(session);
+		   
+		 return "redirect:/main";
+		}
+		// �븘�씠�뵒 以묐났 寃��궗
+		@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
+		@ResponseBody
+		public String memberIdChkPOST(String id) throws Exception{
+			
+			logger.info("memberIdChk() 吏꾩엯");
+			logger.info(id);
+			
+			int result = loginService.idCheck(id);
+			
+			logger.info("寃곌낵媛� = " + result);
+			
+			if(result != 0) {
+				
+				return "fail";	// 以묐났 �븘�씠�뵒媛� 議댁옱
+				
+			} else {
+				
+				return "success";	// 以묐났 �븘�씠�뵒 x
+				
+			}
+		}
+
 }
