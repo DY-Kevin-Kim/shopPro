@@ -24,12 +24,6 @@
 		<![CDATA[ select * from item where itemid=#{itemid} ]]>
 		
 		
-<<<<<<< HEAD
-=======
-	</select>
-	<select id="selectAllClothItem" resultType="com.kic.shopPro.domain.ItemVO">
-		select * from item where itemcategory = "패션의류/잡화"
->>>>>>> main
 	</select>
 	<select id="selectAllClothItem" resultType="com.kic.shopPro.domain.ItemVO">
 		<![CDATA[

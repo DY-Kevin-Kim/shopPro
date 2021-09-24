@@ -51,10 +51,6 @@ public class ItemDAOImpl implements ItemDAO{
 		iVO = sqlSession.selectList(namespace+".selectAllClothItem");
 		return iVO;
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> main
 	
 	public void updateItem(ItemVO iVO) throws Exception{
 		sqlSession.update(namespace+".updateItem", iVO);

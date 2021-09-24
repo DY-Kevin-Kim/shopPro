@@ -11,8 +11,5 @@ public interface ItemService {
 	public ItemDetailVO readFoodItemsDetailInfoByIdMethod(String itemid) throws Exception;
 	public ItemVO readFoodItemByIdMethod(String itemid) throws Exception;
 	public List<ItemVO> readAllClothItemsMethod() throws Exception;
-<<<<<<< HEAD
 	public void updateItemStore(ItemVO iVO) throws Exception;
-=======
->>>>>>> main
 }
