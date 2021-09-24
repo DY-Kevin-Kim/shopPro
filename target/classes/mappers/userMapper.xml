@@ -35,5 +35,19 @@
 					where o.orderid = i.itemid
 					and pay= "결제 완료" order by count desc  ]]>
 	</select>
-	
+	<select id="getAllItemsFromOrder" resultType="com.kic.shopPro.domain.MypageOrderVO">
+      select * from orderlist where memid=#{memid}
+   </select>
+
+   <update id="UpdateMemInfo" parameterType="java.util.HashMap">
+      update member set id=#{newid},pass=#{newpassword},address=#{newAddress} where id=#{beforeid} AND pass=#{beforepassword}
+   </update>
+   
+   <select id="getItemNames" resultType="string" parameterType="string">
+      select itemname from item where itemid=#{itemid}
+   </select>
+   
+   <select id="getItemidFromOrder" resultType="string" parameterType="string">
+      select itemid from orderlist where memid=#{memid}
+   </select>
 </mapper>
