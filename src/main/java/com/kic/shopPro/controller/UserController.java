@@ -55,15 +55,15 @@ public class UserController {
 		
 		visitorService.addVisitor();
 		
-		List<VisitorVO> visitors = visitorService.readVisitorList(); // �뜝�럩沅롥뜝�럥裕� �뛾�렮維뽪룇�뜝�럩�겱, �뜝�럥�꽑�뜝�럩�젷 �뛾�렮維뽪룇�뜝�럩�겱, �뜝�럥�뱡�뜝�럩�쓤 �뛾�렮維뽪룇�뜝�럩�겱 �뜝�럥�빢 占쎈퉲占쎈츊占쎌졑 �뼨轅명�∽옙裕�
-		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // �뛾�렮維뽪룇�뜝�럩�겱 �윜諛몄굡占쎌굥�뜝�럥�뒆 占쎈퉲占쎈츊占쎌졑 �뼨轅명�∽옙裕�
+		List<VisitorVO> visitors = visitorService.readVisitorList(); // 占쎈쐻占쎈윪亦낅‥�쐻占쎈윥獒뺧옙 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑, 占쎈쐻占쎈윥占쎄퐨占쎈쐻占쎈윪占쎌졆 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑, 占쎈쐻占쎈윥占쎈괌占쎈쐻占쎈윪占쎌뱾 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑 占쎈쐻占쎈윥占쎈묄 �뜝�럥�돯�뜝�럥痢듿뜝�럩議� 占쎈섀饔낅챸占썩댙�삕獒뺧옙
+		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑 占쎌쐺獄쏅챷援▼뜝�럩援ο옙�쐻占쎈윥占쎈뭷 �뜝�럥�돯�뜝�럥痢듿뜝�럩議� 占쎈섀饔낅챸占썩댙�삕獒뺧옙
 		
-		//String text = "�뇦猿됲�ｏ옙�젷 �뜝�럩�걦占쎈쇀�뜝占�";
-		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50嶺뚮씭�뒩占쎈쐸�뜝�럩諭� 嶺뚮ㅄ維싷쭗占� �뼨���쐠�뇡紐뚯삕占쎈さ�슖�돦裕됮뇡占� �뜝�럥�뱺�뜝�럡�돺�뜝�럥諭쒏뤆�룊�삕 �뜝�룞�삕�뜝�럩�궋
+		//String text = "占쎈눇�뙼�맪占쏙퐦�삕占쎌졆 占쎈쐻占쎈윪占쎄괜�뜝�럥��占쎈쐻�뜝占�";
+		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50癲ル슢�뵯占쎈뮝�뜝�럥�맱占쎈쐻占쎈윪獄�占� 癲ル슢�뀈泳��떣彛쀥뜝占� 占쎈섀占쏙옙占쎌맆占쎈눀筌뤿슣�굲�뜝�럥�걬占쎌뒙占쎈룱獒뺣맢�눀�뜝占� 占쎈쐻占쎈윥占쎈군占쎈쐻占쎈윞占쎈뤊占쎈쐻占쎈윥獄��뮀琉놅옙猷딉옙�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈윪占쎄텑
 		
 		List<TopItemVO> topItemList = visitorService.readTopItemList();
 		
-		//�뜝�럩沅롥뜝�럥裕�,�뜝�럥�꽑�뜝�럩�젷 �뜝�럥�뱡�뜝�럩�쓤 �뛾�렮維뽪룇�뜝�럩�겱�뜝�럥�빢 占쎈퉲占쎈츊占쎌졑
+		//占쎈쐻占쎈윪亦낅‥�쐻占쎈윥獒뺧옙,占쎈쐻占쎈윥占쎄퐨占쎈쐻占쎈윪占쎌졆 占쎈쐻占쎈윥占쎈괌占쎈쐻占쎈윪占쎌뱾 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑占쎈쐻占쎈윥占쎈묄 �뜝�럥�돯�뜝�럥痢듿뜝�럩議�
 		model.addAttribute("visitors", visitors);
 		
 		System.out.println("===========================" + visitorGraph.size());
@@ -71,13 +71,13 @@ public class UserController {
 		System.out.println("===========================" + visitorService.reachedTotalCost());
 		System.out.println("===========================" +reachedCost);
 		
-		// �뛾�렮維뽪룇�뜝�럩�겱 �윜諛몄굡占쎌굥�뜝�럥�뒆 占쎈퉲占쎈츊占쎌졑
+		// 占쎈쎗占쎈젻泳�戮る즵占쎈쐻占쎈윪占쎄껑 占쎌쐺獄쏅챷援▼뜝�럩援ο옙�쐻占쎈윥占쎈뭷 �뜝�럥�돯�뜝�럥痢듿뜝�럩議�
 		model.addAttribute("visitorGraph", visitorGraph);
 		
-		// 嶺뚮ㅄ維싷쭗占� �뜝�럥利꿨뜝�럥堉� �뜝�럥�빢�뜝�럩逾∽옙紐닷뜝占� 占쎈퉲�겫�슦逾� 占쎈퉲占쎈츊占쎌졑
+		// 癲ル슢�뀈泳��떣彛쀥뜝占� 占쎈쐻占쎈윥筌앷엥�쐻占쎈윥�젆占� 占쎈쐻占쎈윥占쎈묄占쎈쐻占쎈윪�얄댙�삕筌뤿떣�쐻�뜝占� �뜝�럥�돯占쎄껀占쎌뒭�억옙 �뜝�럥�돯�뜝�럥痢듿뜝�럩議�
 		model.addAttribute("reachedCost", reachedCost);
 		
-		// �뜝�럩逾η뼨�먯삕 �뜝�럥占쎈콈彛쀥뜝占� 占쎈뎨占쎈봾裕욃뜝�럥諭�
+		// 占쎈쐻占쎈윪�앓룸섀占쎈Ŋ�굲 占쎈쐻占쎈윥�뜝�럥肄덂퐲�λ쐻�뜝占� �뜝�럥�렓�뜝�럥遊얕짆�쉩�쐻占쎈윥獄�占�
 		model.addAttribute("topItemList", topItemList);
 		return "admin/adminPage";
 	}
@@ -219,7 +219,7 @@ public class UserController {
 		   
 		 return "redirect:/main";
 		}
-		// 占쎈툡占쎌뵠占쎈탵 餓λ쵎�궗 野껓옙占쎄텢
+		// �뜝�럥�닡�뜝�럩逾졾뜝�럥�꺏 繞벿살탮占쎄텢 �뇦猿볦삕�뜝�럡�뀬
 		@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 		@ResponseBody
 		public String memberIdChkPOST(String id) throws Exception{
@@ -233,11 +233,11 @@ public class UserController {
 			
 			if(result != 0) {
 				
-				return "fail";	// 餓λ쵎�궗 占쎈툡占쎌뵠占쎈탵揶쏉옙 鈺곕똻�삺
+				return "fail";	// 繞벿살탮占쎄텢 �뜝�럥�닡�뜝�럩逾졾뜝�럥�꺏�뤆�룊�삕 �댖怨뺣샍占쎌궨
 				
 			} else {
 				
-				return "success";	// 餓λ쵎�궗 占쎈툡占쎌뵠占쎈탵 x
+				return "success";	// 繞벿살탮占쎄텢 �뜝�럥�닡�뜝�럩逾졾뜝�럥�꺏 x
 				
 			}
 		}

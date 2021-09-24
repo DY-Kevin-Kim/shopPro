@@ -47,7 +47,7 @@
     
     <c:if test="${login != null}">
     	<p align="left" style="margin-left:20px; color:blue">${login.id}님 환영합니다.</p>
-    	<!-- <a onclick="location.href ='/shopPro/main'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>로그아웃</b> -->
+    	<a onclick="location.href ='/shopPro/signout'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>로그아웃</b>
     	<a onclick="location.href ='/shopPro/mypage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
     </c:if>
     
