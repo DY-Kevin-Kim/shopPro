@@ -44,15 +44,15 @@ public class UserController {
 		
 		visitorService.addVisitor();
 		
-		List<VisitorVO> visitors = visitorService.readVisitorList(); // 오늘 방문자, 어제 방문자, 누적 방문자 수 출력 기능
-		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 방문자 그래프 출력 기능
+		List<VisitorVO> visitors = visitorService.readVisitorList(); // �삤�뒛 諛⑸Ц�옄, �뼱�젣 諛⑸Ц�옄, �늻�쟻 諛⑸Ц�옄 �닔 異쒕젰 湲곕뒫
+		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 諛⑸Ц�옄 洹몃옒�봽 異쒕젰 湲곕뒫
 		
-		//String text = "결제 완료";
-		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50만원을 목표 금액으로한 퍼센트값 저장
+		//String text = "寃곗젣 �셿猷�";
+		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50留뚯썝�쓣 紐⑺몴 湲덉븸�쑝濡쒗븳 �띁�꽱�듃媛� ���옣
 		
 		List<TopItemVO> topItemList = visitorService.readTopItemList();
 		
-		//오늘,어제 누적 방문자수 출력
+		//�삤�뒛,�뼱�젣 �늻�쟻 諛⑸Ц�옄�닔 異쒕젰
 		model.addAttribute("visitors", visitors);
 		
 		System.out.println("===========================" + visitorGraph.size());
@@ -60,13 +60,13 @@ public class UserController {
 		System.out.println("===========================" + visitorService.reachedTotalCost());
 		System.out.println("===========================" +reachedCost);
 		
-		// 방문자 그래프 출력
+		// 諛⑸Ц�옄 洹몃옒�봽 異쒕젰
 		model.addAttribute("visitorGraph", visitorGraph);
 		
-		// 목표 도달 수익률 추이 출력
+		// 紐⑺몴 �룄�떖 �닔�씡瑜� 異붿씠 異쒕젰
 		model.addAttribute("reachedCost", reachedCost);
 		
-		// 인기 품목 리스트
+		// �씤湲� �뭹紐� 由ъ뒪�듃
 		model.addAttribute("topItemList", topItemList);
 		
 		return "admin/adminPage";
@@ -113,7 +113,7 @@ public class UserController {
 		}
 		model.addAttribute("foodItemList", iVO);
 		model.addAttribute("clothItemList",iVO_cloth);
-    return "redirect:/main";
+		return "redirect: /shopPro/main";
 	}
 	
 }
