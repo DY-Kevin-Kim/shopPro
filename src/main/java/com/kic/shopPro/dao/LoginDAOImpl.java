@@ -16,4 +16,9 @@ public class LoginDAOImpl implements LoginDAO{
 	public MemberVO getLoginResult(MemberVO login) throws Exception{
 		return sqlSession.selectOne(namespace+".login", login);
 	}
+	//회원가입
+	public void signup(MemberVO vo) throws Exception{
+		sqlSession.insert(namespace+".signup",vo);
+	}
+
 }

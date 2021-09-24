@@ -36,4 +36,12 @@ public class ItemServiceImpl implements ItemService{
 		return iDAO.readFoodItemById(itemid);
 	}
 	
+	// 모든 아이템 중 패션의류/잡화 카테고리만 출력하는 메서드
+	public List<ItemVO> readAllClothItemsMethod() throws Exception{
+		return iDAO.readAllClothItems();
+	}
+	
+	public void updateItemStore(ItemVO iVO) throws Exception{
+		iDAO.updateItem(iVO);
+	}
 }

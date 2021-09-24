@@ -22,5 +22,19 @@
 	
 	<select id="selectFoodItemByID" resultType="com.kic.shopPro.domain.ItemVO">
 		<![CDATA[ select * from item where itemid=#{itemid} ]]>
+		
+		
 	</select>
+	<select id="selectAllClothItem" resultType="com.kic.shopPro.domain.ItemVO">
+		<![CDATA[
+		select * from item where itemcategory = "패션의류/잡화"
+		]]>
+	</select>
+	
+	<update id="updateItem">
+		<![CDATA[
+			update item set `stored`=#{stored}
+			where itemid=#{itemid}
+		]]>
+	</update>
 </mapper>
