@@ -64,8 +64,17 @@ public class CartController {
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
 	public String deleteGET(Model model, HttpSession session, @RequestParam("itemid") String itemid) throws Exception{
 		MemberVO get = (MemberVO) session.getAttribute("login");
-		System.out.println(get.getId()+itemid);
 		cartService.deleteCartMethod(get.getId(), itemid);
 		return "redirect: /shopPro/cart";
 	} 
+	
+	@RequestMapping(value="/inputOrder",method=RequestMethod.GET)
+	public String inputOrderGET(Model model, HttpSession session) throws Exception{
+		MemberVO get = (MemberVO) session.getAttribute("login");
+		List<CartVO> list = null;
+		list = cartService.readCartListMethod(get.getId());
+		cartService.inputOrderMethod(list);
+		cartService.deleteAllCartMethod(get.getId());
+		return "redirect: /shopPro/cart";
+	}
 }

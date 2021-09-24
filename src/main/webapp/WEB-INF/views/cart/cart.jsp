@@ -97,11 +97,11 @@
 				<tr>
 					<td width="100" align="center">상품번호</td>
 					<td width="500" align="center">상품명</td>
-					<td width="100" align="center">개수</td>
-					<td width="150" align="center">상품금액</td>
-					<td width="100" align="center"></td>
+					<td width="200" align="center">개수</td>
+					<td width="200" align="center">상품금액</td>
+					<td width="200" align="center"></td>
 				</tr>
-
+				
 				<c:forEach var="list" items="${cartList}">
 					<tr>
 						<td width="100" align="center"><c:out value="${list.itemid}" /></td>
@@ -113,7 +113,7 @@
 						<td width="100" align="center">
 							<form name="cart" method="get">
 								<input type="hidden" name="itemid" value="${list.itemid}">
-								<button formaction="delete">삭제하기</button>
+								<button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom" formaction="delete">삭제하기</button>
 							</form>
 						</td>
 					</tr>
@@ -135,10 +135,12 @@
 
 			<div style="text-align: center">
 				<p>
+				<form name="order" method="get">
 					<button
-						class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+						class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom" formaction="inputOrder">
 						<i class="w3-margin-center"></i>구매하기
 					</button>
+				</form>
 				</p>
 			</div>
 
@@ -150,5 +152,6 @@
 			6조 <a href="https://www.w3schools.com/w3css/default.asp"
 				title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a>
 		</div>
+	</div>
 </body>
 </html>

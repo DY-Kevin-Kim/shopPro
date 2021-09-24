@@ -52,4 +52,16 @@ public class CartDAOImpl implements CartDAO {
 		cvo.setItemid(itemid);
 		sqlSession.delete(namespace+".deleteCart",cvo);
 	}
+
+	@Override
+	public void deleteAllCart(String id) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.delete(namespace+".deleteAllCart",id);
+	}
+
+	@Override
+	public void inputOrder(List<CartVO> vo) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.insert(namespace+".inputOrder",vo);
+	}
 }

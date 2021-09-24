@@ -14,4 +14,8 @@ public interface CartDAO {
 	public void updateCart(CartVO cVO) throws Exception;
 
 	public void deleteCart(String memid, String itemid) throws Exception;
+
+	public void deleteAllCart(String id) throws Exception;
+	
+	public void inputOrder(List<CartVO> vo) throws Exception;
 }
