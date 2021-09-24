@@ -24,4 +24,24 @@
 	<delete id="deleteCart">
 	<![CDATA[ delete from cart where memid=#{memid} and itemid=#{itemid} ]]>
 	</delete>
+
+	<delete id="deleteAllCart">
+	<![CDATA[ delete from cart where memid=#{id}]]>
+	</delete>
+
+	<insert id="inputOrder" parameterType="java.util.List">
+		insert into orderlist(memid,itemid,pay,curstate,date,price,count)
+		values 
+		<foreach item="item" index="index" collection="list" separator=",">
+		(
+		#{item.memid},
+		#{item.itemid},
+		"결제완료",
+		"배송준비중",
+		now(),
+		#{item.price},
+		#{item.itemcount}
+		)
+		</foreach>
+	</insert>
 </mapper>

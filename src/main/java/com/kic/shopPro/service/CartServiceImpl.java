@@ -43,4 +43,16 @@ public class CartServiceImpl implements CartService {
 		cartDao.deleteCart(memid,itemid);
 	}
 
+	@Override
+	public void inputOrderMethod(List<CartVO> vo) throws Exception {
+		// TODO Auto-generated method stub
+		cartDao.inputOrder(vo);
+	}
+
+	@Override
+	public void deleteAllCartMethod(String id) throws Exception {
+		// TODO Auto-generated method stub
+		cartDao.deleteAllCart(id);
+	}
+
 }

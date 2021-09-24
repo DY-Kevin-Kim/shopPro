@@ -49,7 +49,7 @@
     </c:if>
     
     <a onclick="location.href ='/shopPro/admin/adminPage'" class="w3-bar-item w3-button w3-padding">- <b>관리자 페이지</b></a>
-    <a onclick="location.href ='/shopPro/MyPage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
+    <a onclick="location.href ='/shopPro/mypage'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>마이 페이지</b></a> 
     <a onclick="location.href ='/shopPro/reviewWrite?itemid=${ItemInfo.itemid}'" class="w3-bar-item w3-button w3-padding" style="margin-bottom:50px">- <b>리뷰 쓰기</b></a> 
   </div>
 
