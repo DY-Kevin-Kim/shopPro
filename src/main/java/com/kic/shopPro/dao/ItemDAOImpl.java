@@ -52,5 +52,7 @@ public class ItemDAOImpl implements ItemDAO{
 		return iVO;
 	}
 	
-	
+	public void updateItem(ItemVO iVO) throws Exception{
+		sqlSession.update(namespace+".updateItem", iVO);
+	}
 }

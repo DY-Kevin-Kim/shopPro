@@ -126,6 +126,15 @@ public class UserController {
 		return "redirect: /shopPro/main";
 		}
 	
+	@RequestMapping(value="/pay", method=RequestMethod.POST)
+	public String payForItemMethod(@RequestParam("itemid") String itemid, @RequestParam("itemcount") int itemcount) throws Exception{
+		
+		ItemVO iVO = itemService.readFoodItemByIdMethod(itemid);
+		int newStored = iVO.getStored() - itemcount;
+		iVO.setStored(newStored);
+		itemService.updateItemStore(iVO);
+		return "redirect:/main";
+	}
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	   public String MyPageMethod(Model model,HttpServletRequest request,HttpServletRequest response) throws Exception {
 	      HttpSession session=request.getSession();
@@ -134,7 +143,7 @@ public class UserController {
 	      List<String> itemname=new ArrayList<String>();
 	      List<String> itemid=new ArrayList<String>();
 	      if(mypageinfo==null) {
-	         String msg="嚥≪뮄�젃占쎌뵥占쎌뵠 占쎈┷占쎈선占쎌뿳筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.";
+	         String msg="로그인이 되어있지 않습니다.";
 	         String url="main";
 	         model.addAttribute("msg",msg);
 	         model.addAttribute("url",url);
@@ -162,7 +171,7 @@ public class UserController {
 	         return "Mypage/ChangeInfo";
 	      }
 	      else {
-	         model.addAttribute("msg","�뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.");
+	         model.addAttribute("msg","비밀번호가 일치하지 않습니다.");
 	         model.addAttribute("url","UpdateMeminfo");
 	         return "alert";
 	      }
@@ -185,13 +194,13 @@ public class UserController {
 	      int num=mpageService.UpdateMemInfo(request.getParameter("changeid"),request.getParameter("changePS"),request.getParameter("changeAddress"),mypageinfo.getId(),mypageinfo.getPass());
 	      if(num>0) {
 	         
-	         model.addAttribute("msg","占쎌젟癰귣떯占� 占쎈땾占쎌젟占쎈┷占쎈�占쎈뮸占쎈빍占쎈뼄.");
+	         model.addAttribute("msg","정보가 수정되었습니다.");
 	         model.addAttribute("url","mypage");
 	         session.removeAttribute("login");
 	         session.setAttribute("login", newVO);
 	         return "alert";
 	      }else {
-	         model.addAttribute("msg","占쎈땾占쎌젟占쎌궎�몴占�!");
+	         model.addAttribute("msg","수정오류!");
 	         model.addAttribute("url","ChangeInfo");
 	         return "alert";
 	      }
