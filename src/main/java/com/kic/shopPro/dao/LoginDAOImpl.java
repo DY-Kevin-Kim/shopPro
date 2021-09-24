@@ -20,5 +20,14 @@ public class LoginDAOImpl implements LoginDAO{
 	public void signup(MemberVO vo) throws Exception{
 		sqlSession.insert(namespace+".signup",vo);
 	}
+	public int idCheck(String id) throws Exception{
+		return sqlSession.selectOne(namespace+".idCheck",id);
+	}
+	/*
+	 * public MemberVO idCheck(String id) throws Exception{ return
+	 * sqlSession.selectOne(namespace+".idCheck",id); }
+	 */
+
+
 
 }

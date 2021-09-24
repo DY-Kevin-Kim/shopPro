@@ -1,5 +1,7 @@
 package com.kic.shopPro.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,16 @@ public class LoginServiceImpl implements LoginService {
 	public void signup(MemberVO vo) throws Exception{
 		loginDAO.signup(vo);
 	}
+	public void signout(HttpSession session) throws Exception{
+		session.invalidate();
+	}
+
+	/*
+	 * public MemberVO idCheck(String id) throws Exception{ return
+	 * loginDAO.idCheck(id); }
+	 */
+	public int idCheck(String id) throws Exception {
+		return loginDAO.idCheck(id);
+	}
+
 }

@@ -6,15 +6,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.protobuf.TextFormat.ParseException;
+import com.kic.shopPro.dao.LoginDAO;
 import com.kic.shopPro.domain.ItemVO;
 import com.kic.shopPro.domain.MemberVO;
 import com.kic.shopPro.domain.MypageOrderVO;
@@ -26,16 +31,16 @@ import com.kic.shopPro.service.LoginService;
 import com.kic.shopPro.service.RegisterService;
 import com.kic.shopPro.service.VisitorService;
 import com.kic.shopPro.service.mypageService;
+
 @Controller
 public class UserController {
 	@Autowired
 	private LoginService loginService;
-	
+	private SqlSession sqlSession;
 	@Autowired
 	private ItemService itemService;
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-	
 	@Autowired
 	private VisitorService visitorService;
 	
@@ -50,15 +55,15 @@ public class UserController {
 		
 		visitorService.addVisitor();
 		
-		List<VisitorVO> visitors = visitorService.readVisitorList(); // 占쎌궎占쎈뮎 獄쎻뫖揆占쎌쁽, 占쎈선占쎌젫 獄쎻뫖揆占쎌쁽, 占쎈듇占쎌읅 獄쎻뫖揆占쎌쁽 占쎈땾 �빊�뮆�젾 疫꿸퀡�뮟
-		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // 獄쎻뫖揆占쎌쁽 域밸챶�삋占쎈늄 �빊�뮆�젾 疫꿸퀡�뮟
+		List<VisitorVO> visitors = visitorService.readVisitorList(); // �뜝�럩沅롥뜝�럥裕� �뛾�렮維뽪룇�뜝�럩�겱, �뜝�럥�꽑�뜝�럩�젷 �뛾�렮維뽪룇�뜝�럩�겱, �뜝�럥�뱡�뜝�럩�쓤 �뛾�렮維뽪룇�뜝�럩�겱 �뜝�럥�빢 占쎈퉲占쎈츊占쎌졑 �뼨轅명�∽옙裕�
+		List<VisitorGraphVO> visitorGraph = visitorService.readVisitorGraphList(); // �뛾�렮維뽪룇�뜝�럩�겱 �윜諛몄굡占쎌굥�뜝�럥�뒆 占쎈퉲占쎈츊占쎌졑 �뼨轅명�∽옙裕�
 		
-		//String text = "野껉퀣�젫 占쎌끏�뙴占�";
-		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50筌띾슣�뜚占쎌뱽 筌뤴뫚紐� 疫뀀뜆釉몌옙�몵嚥≪뮉釉� 占쎈쓠占쎄쉽占쎈뱜揶쏉옙 占쏙옙占쎌삢
+		//String text = "�뇦猿됲�ｏ옙�젷 �뜝�럩�걦占쎈쇀�뜝占�";
+		double reachedCost = ((double)visitorService.reachedTotalCost()/500000) * 100; // 50嶺뚮씭�뒩占쎈쐸�뜝�럩諭� 嶺뚮ㅄ維싷쭗占� �뼨���쐠�뇡紐뚯삕占쎈さ�슖�돦裕됮뇡占� �뜝�럥�뱺�뜝�럡�돺�뜝�럥諭쒏뤆�룊�삕 �뜝�룞�삕�뜝�럩�궋
 		
 		List<TopItemVO> topItemList = visitorService.readTopItemList();
 		
-		//占쎌궎占쎈뮎,占쎈선占쎌젫 占쎈듇占쎌읅 獄쎻뫖揆占쎌쁽占쎈땾 �빊�뮆�젾
+		//�뜝�럩沅롥뜝�럥裕�,�뜝�럥�꽑�뜝�럩�젷 �뜝�럥�뱡�뜝�럩�쓤 �뛾�렮維뽪룇�뜝�럩�겱�뜝�럥�빢 占쎈퉲占쎈츊占쎌졑
 		model.addAttribute("visitors", visitors);
 		
 		System.out.println("===========================" + visitorGraph.size());
@@ -66,15 +71,14 @@ public class UserController {
 		System.out.println("===========================" + visitorService.reachedTotalCost());
 		System.out.println("===========================" +reachedCost);
 		
-		// 獄쎻뫖揆占쎌쁽 域밸챶�삋占쎈늄 �빊�뮆�젾
+		// �뛾�렮維뽪룇�뜝�럩�겱 �윜諛몄굡占쎌굥�뜝�럥�뒆 占쎈퉲占쎈츊占쎌졑
 		model.addAttribute("visitorGraph", visitorGraph);
 		
-		// 筌뤴뫚紐� 占쎈즲占쎈뼎 占쎈땾占쎌뵡�몴占� �빊遺우뵠 �빊�뮆�젾
+		// 嶺뚮ㅄ維싷쭗占� �뜝�럥利꿨뜝�럥堉� �뜝�럥�빢�뜝�럩逾∽옙紐닷뜝占� 占쎈퉲�겫�슦逾� 占쎈퉲占쎈츊占쎌졑
 		model.addAttribute("reachedCost", reachedCost);
 		
-		// 占쎌뵥疫뀐옙 占쎈�뱄쭗占� �뵳�딅뮞占쎈뱜
+		// �뜝�럩逾η뼨�먯삕 �뜝�럥占쎈콈彛쀥뜝占� 占쎈뎨占쎈봾裕욃뜝�럥諭�
 		model.addAttribute("topItemList", topItemList);
-		
 		return "admin/adminPage";
 	}
 	
@@ -120,7 +124,7 @@ public class UserController {
 		model.addAttribute("foodItemList", iVO);
 		model.addAttribute("clothItemList",iVO_cloth);
 		return "redirect: /shopPro/main";
-	}
+		}
 	
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	   public String MyPageMethod(Model model,HttpServletRequest request,HttpServletRequest response) throws Exception {
@@ -130,7 +134,7 @@ public class UserController {
 	      List<String> itemname=new ArrayList<String>();
 	      List<String> itemid=new ArrayList<String>();
 	      if(mypageinfo==null) {
-	         String msg="濡쒓렇�씤�씠 �릺�뼱�엳吏� �븡�뒿�땲�떎.";
+	         String msg="嚥≪뮄�젃占쎌뵥占쎌뵠 占쎈┷占쎈선占쎌뿳筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.";
 	         String url="main";
 	         model.addAttribute("msg",msg);
 	         model.addAttribute("url",url);
@@ -158,7 +162,7 @@ public class UserController {
 	         return "Mypage/ChangeInfo";
 	      }
 	      else {
-	         model.addAttribute("msg","鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.");
+	         model.addAttribute("msg","�뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.");
 	         model.addAttribute("url","UpdateMeminfo");
 	         return "alert";
 	      }
@@ -181,13 +185,13 @@ public class UserController {
 	      int num=mpageService.UpdateMemInfo(request.getParameter("changeid"),request.getParameter("changePS"),request.getParameter("changeAddress"),mypageinfo.getId(),mypageinfo.getPass());
 	      if(num>0) {
 	         
-	         model.addAttribute("msg","�젙蹂닿� �닔�젙�릺�뿀�뒿�땲�떎.");
+	         model.addAttribute("msg","占쎌젟癰귣떯占� 占쎈땾占쎌젟占쎈┷占쎈�占쎈뮸占쎈빍占쎈뼄.");
 	         model.addAttribute("url","mypage");
 	         session.removeAttribute("login");
 	         session.setAttribute("login", newVO);
 	         return "alert";
 	      }else {
-	         model.addAttribute("msg","�닔�젙�삤瑜�!");
+	         model.addAttribute("msg","占쎈땾占쎌젟占쎌궎�몴占�!");
 	         model.addAttribute("url","ChangeInfo");
 	         return "alert";
 	      }
@@ -206,27 +210,26 @@ public class UserController {
 		   
 		 return "redirect:/main";
 		}
-		// �븘�씠�뵒 以묐났 寃��궗
+		// 占쎈툡占쎌뵠占쎈탵 餓λ쵎�궗 野껓옙占쎄텢
 		@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 		@ResponseBody
 		public String memberIdChkPOST(String id) throws Exception{
 			
-			logger.info("memberIdChk() 吏꾩엯");
+			logger.info("memberIdChk() 진입");
 			logger.info(id);
 			
 			int result = loginService.idCheck(id);
 			
-			logger.info("寃곌낵媛� = " + result);
+			logger.info("결과값 =" + result);
 			
 			if(result != 0) {
 				
-				return "fail";	// 以묐났 �븘�씠�뵒媛� 議댁옱
+				return "fail";	// 餓λ쵎�궗 占쎈툡占쎌뵠占쎈탵揶쏉옙 鈺곕똻�삺
 				
 			} else {
 				
-				return "success";	// 以묐났 �븘�씠�뵒 x
+				return "success";	// 餓λ쵎�궗 占쎈툡占쎌뵠占쎈탵 x
 				
 			}
 		}
-
 }
