@@ -10,4 +10,6 @@ public interface CartService {
 	public CartVO readCartMethod(String id, String itemid) throws Exception;
 	public void updateCartMethod(CartVO cVO) throws Exception;
 	public void deleteCartMethod(String memid,String itemid) throws Exception;
+	public void inputOrderMethod(List<CartVO> vo) throws Exception;
+	public void deleteAllCartMethod(String id) throws Exception;
 }
